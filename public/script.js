@@ -1,16 +1,9 @@
-// //Open and connect socket
-// let socket = io();
-// //Listen for confirmation of connection
-// socket.on('connect', function() {
-//     console.log("Connected");
-// });
-
 let playerName = prompt("Please Enter Your Name");
 while (playerName == "") {
     playerName = prompt("Please Enter Your Name, Do Not Leave It Blank");
 }
 
-let x2,y2,w2,h2,image2;
+let x2, y2, w2, h2, image2;
 let game_started = false
 function preload() {
     bgMusic = loadSound('background.mp3');
@@ -22,9 +15,8 @@ function preload() {
     ScreamSound = loadSound("scream.mp3");
     img1 = loadImage('kid1.png');
     img2 = loadImage('kid2.png');
-    img3 = loadImage('player.png')
-    img4 = loadImage("player_left.png")
     img = loadImage('bg.jpeg');
+    instructions = loadImage("Instructions.png")
 }
 
 class Game {
@@ -267,7 +259,7 @@ class Player {
 
     // Display the character going left or right  
     display() {
-        
+
         this.update()
         if (this.dir > 0) {
             image(this.img1, this.x, this.y, this.char_w, this.char_h);
@@ -379,7 +371,7 @@ function draw() {
                 let score = (int(game.level / 10)) + 1;
 
                 //creating the object 
-                let obj = {"score" : score, "name" : playerName};
+                let obj = { "score": score, "name": playerName };
 
                 //stringify the object
                 let jsonData = JSON.stringify(obj);
@@ -392,8 +384,8 @@ function draw() {
                     },
                     body: jsonData
                 })
-                .then(response => response.json())
-                .then(data => {console.log(data)});
+                    .then(response => response.json())
+                    .then(data => { console.log(data) });
 
                 //1. make a fetch request of type POST so that we can send the (noCups) info to the server
 
@@ -404,29 +396,8 @@ function draw() {
     // Display The Menu
     else {
 
-        fill(200, 0, 255)
-        text("Welcome To Kid's Going Downstairs! ", 100, 50)
+        image(instructions, 0, 0)
 
-        fill(255, 0, 0)
-        text('How To Play The Game:', 100, 120)
-
-        fill(255, 0, 150)
-        text('•	As soon as the game starts, the player falls.', 100, 150)
-        text('•	Control the player movement by pressing the Right and Left keys respectively.', 100, 170)
-        text('•	Move the player while it’s falling (in the air) as well as on the platforms.', 100, 190)
-        text('•	Avoid touching the harmful platforms, but if no safe platforms exist, jump on harmful ones ', 100, 210)
-        text('  to keep on moving, as you can get your health recovered.', 100, 230)
-        text('•	Try to get as much of a high score as possible!', 100, 250)
-        text('•	When life goes 0, or player touches\falls on the ground, the game ends.', 100, 270)
-        text('•	Click mouse to restart the game.', 100, 290)
-        text('•	Most importantly, Enjoy your time while playing!!!', 100, 310)
-
-        fill(255, 0, 0)
-        text('PLEASE MAKE SURE THE GAME PREVIEW FITS YOUR SCREEN', 100, 400)
-        text('If it does not, please use a monitor', 100, 420)
-
-        fill(200, 0, 255)
-        text('CLICK TO PLAY THE GAME', 100, 500)
     }
 }
 
@@ -463,33 +434,6 @@ function mouseClicked() { //Start and Restart Game when mouse clicked
 scoreButton = document.createElement("button")
 scoreButton.innerHTML = "LeaderBoard";
 document.body.appendChild(scoreButton);
-
 scoreButton.addEventListener('click', () => {
     window.location.href = 'Leaderboard/';
 })
-//     function mouseMoved() {
-//         //Grab mouse position
-//         let mousePos = { x: mouseX, y: mouseY };
-//         //Send mouse position object to the server
-//         socket.emit('data', mousePos);
-
-//         //Draw yourself? or Wait for server?
-//         // fill(0);
-//         // ellipse(mouseX, mouseY 10, 10);
-//     }
-
-//     function setup() {
-//         createCanvas(windowWidth, windowHeight);
-//         background(255);
-
-//         //Listen for messages named 'data' from the server
-//         socket.on('data', function(obj) {
-//           console.log(obj);
-//           drawPos(obj);
-//         });
-//     }
-
-//     function drawPos(pos) {
-//         fill(0);
-//         ellipse(pos.x, pos.y, 10, 10);
-//     }
