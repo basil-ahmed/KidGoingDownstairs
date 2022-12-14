@@ -103,12 +103,6 @@ class Game {
 
         this.kid.display();
 
-        // let player = this.kid;
-        // socket.emit('player', player);
-
-        // socket.on('player', function(player) {
-        //     player.display();
-        // })
     }
 
 }
@@ -263,44 +257,9 @@ class Player {
         this.update()
         if (this.dir > 0) {
             image(this.img1, this.x, this.y, this.char_w, this.char_h);
-            // let playerPos = { x: this.x, y: this.y, w: this.char_w,h: this.char_h, img:"image1"};
-            // //Send mouse position object to the server
-            // socket.emit('position', playerPos);
-            // image2=this.img1;
-            // socket.on('position', function(position) {
-            //     console.log(position);
-            //     x2=position.x;
-            //     y2=position.y;
-            //     w2=position.w;
-            //     h2=position.h;
-            //     if(position.img == "image1"){
-            //         image2 = this.img1;
-            //     }
-            //     else{
-            //         image2 = this.img2;
-            //     }
-            // });
-            // image(image2, x2, y2, w2, h2);
         }
         if (this.dir < 0) {
             image(this.img2, this.x, this.y, this.char_w, this.char_h);
-            // let playerPos = { x: this.x, y: this.y, w: this.char_w,h: this.char_h, img:"image2"};
-            // socket.emit('position', playerPos);
-            // image2 = this.img1;
-            // socket.on('position', function(position) {
-            //     console.log(position);
-            //     x2=position.x;
-            //     y2=position.y;
-            //     w2=position.w;
-            //     h2=position.h;
-            //     if(position.img == "image2"){
-            //         image2 = this.img2;
-            //     }
-            //     else{
-            //         image2 = this.img1;
-            //     }
-            // });
-            // image(image2, x2, y2, w2, h2);
         }
     }
 
