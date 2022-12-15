@@ -59,3 +59,10 @@
       "node": ">=16.0.0 <17.0.0"
     },
   ```
+
+#### The Game Visuals:
+
+<img width="1440" alt="Screenshot 2022-12-15 at 9 45 38 PM" src="https://user-images.githubusercontent.com/90772853/207919301-6347cbdf-41d7-4787-b3ab-6c4468d28945.png">
+<img width="1440" alt="Screenshot 2022-12-15 at 9 46 13 PM" src="https://user-images.githubusercontent.com/90772853/207919555-bc6a5996-830d-4756-b463-0c1bf14d12df.png">
+<img width="1440" alt="Screenshot 2022-12-15 at 9 45 51 PM" src="https://user-images.githubusercontent.com/90772853/207919595-eec236de-2911-4986-b15c-f711681094dd.png">
+
