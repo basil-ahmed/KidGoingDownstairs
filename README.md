@@ -31,15 +31,31 @@
 
 #### Connected Aspect of the Game:
 - I created a leaderboard where all the high scores will be stored and will be shown along with the name.
+
+<img width="1440" alt="Screenshot 2022-12-15 at 9 21 43 PM" src="https://user-images.githubusercontent.com/90772853/207913757-84d1a57f-5681-4cd6-8ee7-dfcd41bbfbb4.png">
+
+
 - This happens by asking the name as you start the website: 
 
 <img width="453" alt="Screenshot 2022-12-15 at 9 16 28 PM" src="https://user-images.githubusercontent.com/90772853/207912441-defbb4dd-c8af-4a4e-9b9b-e3497883ac05.png">
 
+- The score is stored everytime a game ends (the GAME OVER screen comes).
+- It is stored by using a MongoDB cloud server where the JavaScript file is connected to a collection and the object containing name and score gets stored there.
+- While retrieving the data, for the leaderboard, the data is sorted according to the score in descending order so the highest scores are on top:
 
+  ```
+    data.data.sort((a,b) => b.score - a.score)
+  ```
 
-#### Most Complicated Part of The Project:
-Forming of the randomly placed Platforms and when they reach the top of the screen they disappear.
+#### Difficulties:
+- Forming of the randomly placed Platforms and when they reach the top of the screen they disappear.
+- Since I used Object Oriented Programming, a lot of the things were happening inside the classes and not outside which made making the game a 2-player game much harder than I thought.
+- Different platforms having different functionalities was quite a difficult task to achieve.
+- Connecting on MongoDB and transfer of information was very complicated, specially while hosting the website on glitch. However, I learned MongoDB from the start and also figured out what changes to make for glitch.
+- Add the below line of code in your package.json:
 
-I feel like this is a very difficult thing to make and I tried making it in the file attached.
-I was unable to solve it at the moment but the solution I am thinking of is when the position of the platforms become 0, I just delete them. I will make a function in the class for that. 
-
+  ``` 
+  "engines": {
+      "node": ">=16.0.0 <17.0.0"
+    },
+  ```
